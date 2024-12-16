@@ -1,4 +1,5 @@
 # Quản Lý Nhà Hàng Khách Sạn - Cơ Sở Dữ Liệu
+![image](https://github.com/user-attachments/assets/e4b0922e-7a94-44b7-9f24-46a557c37391)
 ## QuanLyNhaHangKhachSan Database - create objects.sql
 File này chứa các câu lệnh SQL để tạo cấu trúc cơ sở dữ liệu cho hệ thống quản lý nhà hàng khách sạn, bao gồm:
 - Tạo các bảng (tables)
