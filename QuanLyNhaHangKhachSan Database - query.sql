@@ -191,32 +191,3 @@ GRANT SELECT, INSERT, UPDATE ON Dich_vu TO nhanvien;
 CREATE USER quanly FOR LOGIN nguyentrinhhieukien;
 GRANT SELECT, INSERT, UPDATE, DELETE ON Nhan_vien_ql TO quanly WITH GRANT OPTION; 
 
--- Sao lưu dữ liệu bằng lệnh
-CREATE PROCEDURE SaoLuDuLieu
-    @tencsdl NVARCHAR(200),
-    @tentaptin NVARCHAR(200)
-AS
-BEGIN
-    BEGIN TRY
-        BACKUP DATABASE @tencsdl TO DISK = @tentaptin;
-        PRINT 'Sao lưu dữ liệu thành công!';
-    END TRY
-    BEGIN CATCH
-        PRINT 'Lỗi trong quá trình sao lưu: ' + ERROR_MESSAGE();
-    END CATCH
-END;
-
---Phục hồi dữ liệu bằng SQL
-CREATE PROCEDURE restoreDatabase
-    @tencsdl NVARCHAR(100),
-    @tenpath NVARCHAR(256)
-AS
-BEGIN
-    BEGIN TRY
-        RESTORE DATABASE @tencsdl FROM DISK = @tenpath WITH REPLACE; 
-        PRINT 'Phục hồi dữ liệu thành công!';
-    END TRY
-    BEGIN CATCH
-        PRINT 'Lỗi trong quá trình phục hồi: ' + ERROR_MESSAGE();
-    END CATCH
-END;

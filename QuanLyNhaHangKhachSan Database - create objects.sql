@@ -215,13 +215,13 @@ ALTER TABLE [dbo].[Chi_nhanh]  WITH CHECK ADD CHECK  (([loai_hinh]=N'Khách sạ
 GO
 ALTER TABLE [dbo].[Chi_nhanh]  WITH CHECK ADD CHECK  (([phan_khuc]>(0) AND [phan_khuc]<=(5)))
 GO
-ALTER TABLE [dbo].[Khach_hang]  WITH CHECK ADD CHECK  (([gioi_tinh]=N'nam' OR [gioi_tinh]=N'Nữ'))
+ALTER TABLE [dbo].[Khach_hang]  WITH CHECK ADD CHECK  (([gioi_tinh]=N'Nam' OR [gioi_tinh]=N'Nữ'))
 GO
 ALTER TABLE [dbo].[Khach_hang]  WITH CHECK ADD CHECK  ((len([ma_kh])=(10)))
 GO
 ALTER TABLE [dbo].[Loi_nhuan]  WITH CHECK ADD CHECK  ((len([nam])=(4)))
 GO
-ALTER TABLE [dbo].[Nhan_vien_ql]  WITH CHECK ADD CHECK  (([gioi_tinh]=N'nam' OR [gioi_tinh]=N'Nữ'))
+ALTER TABLE [dbo].[Nhan_vien_ql]  WITH CHECK ADD CHECK  (([gioi_tinh]=N'Nam' OR [gioi_tinh]=N'Nữ'))
 GO
 ALTER TABLE [dbo].[Nhan_vien_ql]  WITH CHECK ADD CHECK  (([luong]>(0)))
 GO
@@ -229,7 +229,7 @@ ALTER TABLE [dbo].[Nhan_vien_ql]  WITH CHECK ADD CHECK  ((len([ma_nvql])=(10)))
 GO
 ALTER TABLE [dbo].[Nhan_vien_ql]  WITH CHECK ADD CHECK  ((len([ma_tql])=(10)))
 GO
-ALTER TABLE [dbo].[Than_nhan]  WITH CHECK ADD CHECK  (([gioi_tinh]=N'nam' OR [gioi_tinh]=N'Nữ'))
+ALTER TABLE [dbo].[Than_nhan]  WITH CHECK ADD CHECK  (([gioi_tinh]=N'Nam' OR [gioi_tinh]=N'Nữ'))
 GO
 
 SET ANSI_NULLS ON
