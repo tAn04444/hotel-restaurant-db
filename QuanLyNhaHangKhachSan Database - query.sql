@@ -85,13 +85,13 @@ FROM Than_nhan, Nhan_vien_ql
 WHERE Nhan_vien_ql.ma_nvql = Than_nhan.ma_nvql AND YEAR(GETDATE()) - YEAR(Nhan_vien_ql.ngay_sinh) > 35  
 GROUP BY Nhan_vien_ql.ho_ten, Nhan_vien_ql.gioi_tinh, Nhan_vien_ql.ngay_sinh, Than_nhan.ma_nvql HAVING COUNT(Than_nhan.ma_nvql) > 1
 
---  Truy vấn có sử dụng phép giao, hội, trừ
+-- Truy vấn có sử dụng phép giao, hội, trừ
 SELECT ma_nvql FROM Nhan_vien_ql INTERSECT SELECT ma_nvql FROM Than_nhan
 SELECT ma_cn FROM Chi_nhanh UNION SELECT ma_cn FROM CN_DV
 SELECT ma_kh FROM Khach_hang EXCEPT SELECT ma_kh FROM KH_DV
 SELECT ma_dv FROM KH_DV INTERSECT SELECT ma_dv FROM CN_DV
 
---  Truy vấn cON
+-- Truy vấn cON
 SELECT ho_ten, gioi_tinh, ngay_sinh 
 FROM Nhan_vien_ql 
 WHERE ma_nvql in (SELECT ma_nvql FROM Nhan_vien_ql INTERSECT SELECT ma_nvql FROM Than_nhan)
@@ -109,7 +109,7 @@ SELECT cn.ma_cn, cn.loai_hinh, cn.ten_cn, truyvancON.TONgLoi_nhuan
 FROM Chi_nhanh cn, (SELECT ln.ma_cn, SUM(ln.Loi_nhuan) AS TONgLoi_nhuan FROM Loi_nhuan ln GROUP BY ln.ma_cn) truyvancON 
 WHERE truyvancON.ma_cn=cn.ma_cn
 
---  Truy vấn chéo
+-- Truy vấn chéo
 SELECT ten_cn,
 [Trần Khánh Linh],[Hoàng Đức Sơn],[Phạm Tiến Minh],[Trần Hữu Nghĩa]
 FROM
@@ -133,7 +133,7 @@ PIVOT
 SUM(Loi_nhuan)
 FOR ten_cn IN ([A In Hotel Del Luna], [A In Hotel Glamour],[A In Hotel Riverside],[A In Hotel Trung Sơn],[BONita THT],[Hội Nghộ],[Phố 79 - Phạm Ngọc Thạch],[Phố 79 - Sương Nguyệt Ánh])
 ) AS BangChuyen;
--- -
+-- -- --
 SELECT ho_ten,
 [Vợ chồng], [CON trai],[CON gái]
 FROM
@@ -145,7 +145,7 @@ PIVOT
 COUNT(quan_he)
 FOR quan_he IN ([Vợ chồng], [CON trai],[CON gái])
 ) AS BangChuyen;
--- -
+-- -- --
 SELECT ho_ten,
 [Quầy bar], [Catering],[Đồ ăn mang về],[Đặt giữ chỗ nhà hàng],[Đưa đón sân bay],[Fitness center],[Sân golf và sân tennis],[Giao hàng tận nơi],[Giặt ủi quần áo],[Hội họp, văn phòng],[Nghỉ dưỡng],[Nhà hàng],[Phục vụ trực tiếp tại nhà hàng],[Spa]
 FROM
